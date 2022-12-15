@@ -156,14 +156,98 @@ let b = [3, 2, 1];
 console.log(compareTriplets(a,b));  // [1, 1]
 
 ===========================================================================================================================================================
+// Count Fruits in the vicinity
+function countFruits(s,t,a,b,m,n,apples, oranges) {
+    let actualDistanceApple = [];
+    let actualDistanceOrange = [];
+    let countApples = 0;
+    let countOranges = 0;
+    
+    // for apples
+    for (let i=0;i<m ; i++){
+        actualDistanceApple.push(a + apples[i]);        
+    }
+    // for oranges
+    for (let i=0;i<n ; i++){
+        actualDistanceOrange.push(b + oranges[i]);        
+    }
+    // count apples and oranges
+    
+    for (let j=0;j<actualDistanceApple.length ; j++){         
+        if( s<= actualDistanceApple[j] && (actualDistanceApple[j] <= t))
+            countApples++;
+                
+    }
+    for (let l=0;l<actualDistanceOrange.length ; l++){
+        if( s<= actualDistanceOrange[l] && actualDistanceOrange[l] <= t)
+            countOranges++;
+         
+    }   
+    
+    console.log(countApples);
+    console.log(countOranges);
+}
 
+let s = 7;
+let t = 11;
+let a = 5;
+let b = 15;
+let m = 3;
+let n = 2;
+let apples = [-2,2,1];
+let oranges = [5,-6];
 
+console.log(countFruits(s,t,a,b,m,n,apples, oranges));
+===========================================================================================================================================================
 
+// Remove duplicate no.
 
+const DuplicateNumbers = [1, 1, 2, 2,3,7, 3, 4, 5, 1];
+const DuplicatesRemoved = DuplicateNumbers.filter(
+  (number, index, array) => array.indexOf(number) === index
+);
+console.log(DuplicatesRemoved);
+// o/p - [ 1, 2, 3, 4, 5 ]
 
+===========================================================================================================================================================
+// Number line Jumps
 
+function kangaroo(x1, v1, x2, v2) {
+    // Write your code here   
+    while((v2 < v1 && x2 > x1) || v1 < v2 && x1 > x2) {
+        x1 += v1;
+        x2 += v2;
+        if(x1 === x2) {
+        return "YES";
+        }
+    }
+    return "NO";
 
+}
+===========================================================================================================================================================
+// Between Two Sets
+function getTotalX(a, b) {
+    // Write your code here
+    let count = 0;
+    for(let i = a[a.length - 1] ; i <= b[0] ; i++){    
+    if(a.every((x) => i % x == 0) && b.every((l) => l % i == 0)){
+        count++;
+    }
+}
+return count;
+}
+===========================================================================================================================================================
+// Grading Student
+function gradingStudents(grades) {
+    // Write your code here
+    for (let i = 0; i < grades.length; i++) {   
+        if((grades[i] > 37) && (grades[i] % 5 > 2)){
+            grades[i] = (grades[i] - (grades[i] % 5) + 5)
+        }     
+      }
+    return grades;
+    
+}
 
-
-
+===========================================================================================================================================================
 
