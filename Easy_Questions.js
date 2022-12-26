@@ -225,19 +225,9 @@ function kangaroo(x1, v1, x2, v2) {
 
 }
 ===========================================================================================================================================================
-// Between Two Sets
-function getTotalX(a, b) {
-    // Write your code here
-    let count = 0;
-    for(let i = a[a.length - 1] ; i <= b[0] ; i++){    
-    if(a.every((x) => i % x == 0) && b.every((l) => l % i == 0)){
-        count++;
-    }
-}
-return count;
-}
+
 ===========================================================================================================================================================
-// Grading Student
+// Grading Student: teacher grade student on their marks, if they get 37 and lower, they are failed, but above that they are pass. the marks are averaged on factor of 5 if they lies down +-2 of the factor of 5. eg, if marks 76 => 75, if 78 => 80 
 function gradingStudents(grades) {
     // Write your code here
     for (let i = 0; i < grades.length; i++) {   
@@ -306,7 +296,7 @@ function kangaroo(x1, v1, x2, v2) {
 
 ===========================================================================================================================================================
 
-// Between two sets: 
+// Between two sets:  find that count/ possibilty where from two sets, an element is a factor of first set and another element is factor of other set, and both element are also factor of each other.
 
 function getTotalX(a, b) {
     // Write your code here
@@ -367,4 +357,25 @@ function breakingRecords(scores) {
 
 ===========================================================================================================================================================
 
-//
+// Bill Division
+// dividing bill b/t two and charged the amount, if charged extra, return the extra otherwise bon Appetit
+function bonAppetit(bill, k, b) {
+    let amountCharged = b;
+    let actualAmount = 0;
+    let tempBill = 0;
+    let declined = bill[k];   
+    for(let i = 0; i <bill.length ; i++) {
+        tempBill += bill[i];       
+    }
+    actualAmount = (tempBill - declined)/2;
+    let extra =  amountCharged-actualAmount; 
+    if( amountCharged === actualAmount) {
+        console.log( "Bon Appetit");
+    } 
+    else {
+       console.log(extra);
+    }
+}
+
+let bill = [3,10,2,9];
+bonAppetit(bill,1,12);  // 5
