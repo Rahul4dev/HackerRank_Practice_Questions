@@ -250,4 +250,121 @@ function gradingStudents(grades) {
 }
 
 ===========================================================================================================================================================
+// Apple And Oranges
 
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    // Write your code here
+    let actualDistanceApple = [];
+    let actualDistanceOrange = [];
+    let countApples = 0;
+    let countOranges = 0;
+    let m = apples.length;
+    let n = oranges.length;
+    
+    // for apples
+    for (let i=0;i<m ; i++){
+        actualDistanceApple.push(a + apples[i]);        
+    }
+    // for oranges
+    for (let i=0;i<n ; i++){
+        actualDistanceOrange.push(b + oranges[i]);        
+    }
+    // count apples and oranges
+    
+    for (let j=0;j<actualDistanceApple.length ; j++){         
+        if( s<= actualDistanceApple[j] && (actualDistanceApple[j] <= t))
+            countApples++;
+                
+    }
+    for (let l=0;l<actualDistanceOrange.length ; l++){
+        if( s<= actualDistanceOrange[l] && actualDistanceOrange[l] <= t)
+            countOranges++;
+         
+    }   
+    
+    console.log(countApples);
+    console.log(countOranges);
+}
+
+
+===========================================================================================================================================================
+// Number line jumps Kangaroo Question
+
+function kangaroo(x1, v1, x2, v2) {
+    // Write your code here   
+    while((v2 < v1 && x2 > x1) || v1 < v2 && x1 > x2) {
+        x1 += v1;
+        x2 += v2;
+        if(x1 === x2) {
+        return "YES";
+        }
+    }
+    return "NO";
+
+}
+
+
+===========================================================================================================================================================
+
+// Between two sets: 
+
+function getTotalX(a, b) {
+    // Write your code here
+    let count = 0;
+    for(let i = a[a.length - 1] ; i <= b[0] ; i++){    
+    if(a.every((x) => i % x == 0) && b.every((l) => l % i == 0)){
+        count++;
+    }
+}
+return count;
+}
+
+
+===========================================================================================================================================================
+
+// Divisible sum pairs: possibility
+
+function divisibleSumPairs(n, k, ar) {
+    // Write your code here
+var count = 0;
+    for(var i = 0; i < n; i++) {
+        for(var j = (i+1); j < n; j++) {
+            if((ar[i] + ar[j]) % k === 0) {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+// input: ar = [1, 3, 2, 6, 1, 2]  n = 6, k = 3
+// ouput: 5
+===========================================================================================================================================================
+
+// Breaking the records: 
+
+function breakingRecords(scores) {
+    // Write your code here
+    let minRecord = 0;
+    let maxRecord = 0;
+    let valueMax = scores[0];
+    let valueMin = scores[0];
+    for(let i=0; i< scores.length; i++) {
+        if( scores[i] > valueMax ) {
+            valueMax = scores[i];                  
+            maxRecord++;
+        }else if (scores[i] < valueMin){
+            valueMin = scores[i];
+            minRecord++
+        }
+    }
+  return [maxRecord,minRecord];
+}
+
+
+// input: ar = [10, 5, 20, 20, 4, 5, 2, 25, 1]
+// output: 2 4 i.e, maxRecord 2 times(20,25) and minRecord 4 times(5,4,2,1)
+
+===========================================================================================================================================================
+
+//
